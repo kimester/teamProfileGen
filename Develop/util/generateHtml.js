@@ -1,35 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-// inquirer
-//     .prompt([
-//   {
-//     type: "input",
-//     name: "name",
-//     message: "What is your name?",
-//   },
-//   {
-//     type: "input",
-//     name: "position",
-//     message: "What is your role?",
-//     choices: ["Manager", "Engineer", "Intern"],
-//   },
-//   {
-//     type: "input",
-//     name: "ID",
-//     message: "What is your ID number?",
-//   },
-//   {
-//     type: "input",
-//     name: "email",
-//     message: "What is your email?",
-//   },
-//   {
-//     type: "input",
-//     name: "githubusername",
-//     message: "What is your Github username>",
-//   },
-// ]);
 const questions = [
   {
     type: "input",
@@ -37,7 +8,7 @@ const questions = [
     message: "What is your name?",
   },
   {
-    type: "input",
+    type: "list",
     name: "position",
     message: "What is your role?",
     choices: ["Manager", "Engineer", "Intern"],
@@ -188,10 +159,13 @@ function init() {
     .prompt(questions)
     .then((answers) => {
       console.log(answers);
+
+        //write to a file
+        writeToFile("team.html");
     })
 
     .catch((error) => console.log(error));
 }
 
-// Function call to initialize app
+// Function call to initialize app ??
 init();
