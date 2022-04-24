@@ -31,33 +31,33 @@ const fs = require("fs");
 //   },
 // ]);
 const questions = [
-    {
-      type: "input",
-      name: "name",
-      message: "What is your name?",
-    },
-    {
-      type: "input",
-      name: "position",
-      message: "What is your role?",
-      choices: ["Manager", "Engineer", "Intern"],
-    },
-    {
-      type: "input",
-      name: "ID",
-      message: "What is your ID number?",
-    },
-    {
-      type: "input",
-      name: "email",
-      message: "What is your email?",
-    },
-    {
-      type: "input",
-      name: "githubusername",
-      message: "What is your Github username>",
-    },
-  ]
+  {
+    type: "input",
+    name: "name",
+    message: "What is your name?",
+  },
+  {
+    type: "input",
+    name: "position",
+    message: "What is your role?",
+    choices: ["Manager", "Engineer", "Intern"],
+  },
+  {
+    type: "input",
+    name: "ID",
+    message: "What is your ID number?",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "What is your email?",
+  },
+  {
+    type: "input",
+    name: "githubusername",
+    message: "What is your Github username>",
+  },
+];
 // create the team
 const generateTeam = (team) => {
   // create the manager html
@@ -188,15 +188,10 @@ function init() {
     .prompt(questions)
     .then((answers) => {
       console.log(answers);
-      //convert it into readme format
-      const convertData = generateMarkdown(answers);
-      console.log(convertData);
-
-      //write to to a file
-      writeToFile("index.html", convertData);
     })
 
     .catch((error) => console.log(error));
 }
+
 // Function call to initialize app
 init();
