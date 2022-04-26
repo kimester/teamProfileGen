@@ -1,34 +1,3 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
-
-const questions = [
-  {
-    type: "input",
-    name: "name",
-    message: "What is your name?",
-  },
-  {
-    type: "list",
-    name: "position",
-    message: "What is your role?",
-    choices: ["Manager", "Engineer", "Intern"],
-  },
-  {
-    type: "input",
-    name: "ID",
-    message: "What is your ID number?",
-  },
-  {
-    type: "input",
-    name: "email",
-    message: "What is your email?",
-  },
-  {
-    type: "input",
-    name: "githubusername",
-    message: "What is your Github username>",
-  },
-];
 // create the team
 const generateTeam = (team) => {
   // create the manager html
@@ -147,25 +116,3 @@ module.exports = (team) => {
  </html>
     `;
 };
-//Create a function to write a html file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, data, (err) =>
-    err ? console.error(err) : console.log("Success!", fileName)
-  );
-}
-// TODO: Create a function to initialize app
-function init() {
-  inquirer
-    .prompt(questions)
-    .then((answers) => {
-      console.log(answers);
-
-        //write to a file
-        writeToFile("team.html");
-    })
-
-    .catch((error) => console.log(error));
-}
-
-// Function call to initialize app ??
-init();
