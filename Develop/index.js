@@ -5,17 +5,16 @@ const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const teamBuilder = require("./util/generateHtml");
 
-//to hold all the member information create a blank array 
-let allMembers = []; 
+//to hold all the member information create a blank array
+let allMembers = [];
 
 const questions = [
-
   {
     type: "list",
     name: "position",
     message: "What is your role?",
     choices: ["Manager", "Engineer", "Intern", "Generate HTML"],
-  }
+  },
 ];
 
 //Create a function to write a html file
@@ -35,16 +34,15 @@ function init() {
         askInternQuestions();
       }
       if (answers.position === "Manager") {
-       // askInternQuestions();
+        // askInternQuestions();
       }
 
       if (answers.position === "Engineer") {
         //askInternQuestions();
-
       } else {
-        console.log("All member information", allMembers); 
+        console.log("All member information", allMembers);
         //write to a file
-        writeToFile("team.html", (allMembers));
+        writeToFile("team.html", allMembers);
       }
     })
 
@@ -55,9 +53,10 @@ function init() {
 init();
 
 function askInternQuestions() {
-  console.log("Intern questions"); 
+  console.log("Intern questions");
   inquirer
-    .prompt([{
+    .prompt([
+      {
         type: "input",
         name: "name",
         message: "What is your name?",
@@ -88,14 +87,16 @@ function askInternQuestions() {
         answers.email,
         answers.schoolName
       );
-     console.log("Intern Class obj ", newIntern);
-      //add the information to the blank new array 
-      allMembers.push(newIntern); 
-
+      console.log("Intern Class obj ", newIntern);
+      //add the information to the blank new array
+      allMembers.push(newIntern);
+    });
+}
 function askEngineerQuestions() {
-  console.log("Engineer questions"); 
+  console.log("Engineer questions");
   inquirer
-    .prompt([{
+    .prompt([
+      {
         type: "input",
         name: "name",
         message: "What is your name?",
@@ -119,20 +120,22 @@ function askEngineerQuestions() {
     .then((answers) => {
       console.log(answers);
 
-  const newEngineer = new Engineer(
+      const newEngineer = new Engineer(
         answers.ID,
         answers.name,
         answers.email,
         answers.github
       );
       console.log("Engineer Class obj ", newEngineer);
-      //add the information to the blank new array 
-      allMembers.push(newEngineer); 
-
+      //add the information to the blank new array
+      allMembers.push(newEngineer);
+    });
+}
 function askManagerQuestions() {
-  console.log("Manager questions"); 
+  console.log("Manager questions");
   inquirer
-    .prompt([{
+    .prompt([
+      {
         type: "input",
         name: "name",
         message: "What is your name?",
@@ -159,14 +162,13 @@ function askManagerQuestions() {
         answers.ID,
         answers.name,
         answers.email,
-        answers.officeNumber,
+        answers.officeNumber
       );
       console.log("Manager Class obj ", newManager);
-      //add the information to the blank new array 
-      allMembers.push(newManager); 
+      //add the information to the blank new array
+      allMembers.push(newManager);
 
       //ask again until i exit
       init();
     });
-  }
-});
+}
