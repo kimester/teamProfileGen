@@ -34,11 +34,11 @@ function init() {
         askInternQuestions();
       }
       if (answers.position === "Manager") {
-        // askInternQuestions();
+        askInternQuestions();
       }
 
       if (answers.position === "Engineer") {
-        //askInternQuestions();
+        askInternQuestions();
       } else {
         console.log("All member information", allMembers);
         //write to a file
