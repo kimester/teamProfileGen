@@ -32,13 +32,10 @@ function init() {
 
       if (answers.position === "Intern") {
         askInternQuestions();
-      }
-      if (answers.position === "Manager") {
-        askInternQuestions();
-      }
-
-      if (answers.position === "Engineer") {
-        askInternQuestions();
+      } else if (answers.position === "Manager") {
+        askManagerQuestions();
+      } else if (answers.position === "Engineer") {
+        askEngineerQuestions();
       } else {
         console.log("All member information", allMembers);
         //write to a file
@@ -90,6 +87,7 @@ function askInternQuestions() {
       console.log("Intern Class obj ", newIntern);
       //add the information to the blank new array
       allMembers.push(newIntern);
+      init();
     });
 }
 function askEngineerQuestions() {
@@ -113,7 +111,7 @@ function askEngineerQuestions() {
       },
       {
         type: "input",
-        name: "schoolName",
+        name: "github",
         message: "What is your github username?",
       },
     ])
@@ -129,6 +127,7 @@ function askEngineerQuestions() {
       console.log("Engineer Class obj ", newEngineer);
       //add the information to the blank new array
       allMembers.push(newEngineer);
+      init();
     });
 }
 function askManagerQuestions() {
@@ -152,7 +151,7 @@ function askManagerQuestions() {
       },
       {
         type: "input",
-        name: "schoolName",
+        name: "office number",
         message: "What is your office number?",
       },
     ])
