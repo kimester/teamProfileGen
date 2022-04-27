@@ -36,3 +36,7 @@
   Email: [kimester1996@gmail.com](mailto:kimester1996@gmail.com)
 
 ## Walk through video 
+https://drive.google.com/file/d/1dMdpL4O36wAoolEEKm8o_jhvLVwBT3rl/view
+
+## Repository link
+https://github.com/kimester/teamProfileGen
